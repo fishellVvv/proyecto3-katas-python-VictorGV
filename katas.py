@@ -6,17 +6,22 @@ def kata01_frecuencia_letras(texto):
     """
     Escribe una función que reciba una cadena de texto como parámetro y devuelva un diccionario con las frecuencias de cada letra en la cadena. Los espacios no deben ser considerados.
     """
-    frequencias = {}
+    # Diccionario donde acumulamos las apariciones de cada carácter
+    frecuencias = {}
+    # Recorremos el texto carácter a carácter, ignorando los espacios
     for c in texto:
         if c != " ":
-            frequencias[c] = frequencias.get(c, 0) + 1
-    return frequencias
+            # Usamos dict.get para sumar 1 (0 por defecto si la clave no existe aún)
+            frecuencias[c] = frecuencias.get(c, 0) + 1
+
+    return frecuencias
 
 
 def kata02_duplicar_lista(numeros):
     """
     Dada una lista de números, obtén una nueva lista con el doble de cada valor. Usa la función map().
     """
+    # Aplicamos una función lambda a cada número con map para duplicar su valor
     return list(map(lambda num: num*2, numeros))
 
 
@@ -24,9 +29,13 @@ def kata03_encontrar_coincidentes(palabras, objetivo):
     """
     Escribe una función que tome una lista de palabras y una palabra objetivo como parámetros. La función debe devolver una lista con todas las palabras de la lista original que contengan la palabra objetivo.
     """
+    # Quitamos espacios y pasamos a minúsculas
     objetivo_limpio = objetivo.strip().lower()
+    # Si el objetivo queda vacío, devolvemos lista vacía
     if not objetivo_limpio:
         return []
+    
+    # Usamos filter + lambda para quedarnos solo con las palabras que contienen el objetivo
     return list(filter(lambda p: objetivo_limpio in p.lower(), palabras))
 
 
@@ -34,6 +43,7 @@ def kata04_diferencia_listas(lista1, lista2):
     """
     Genera una función que calcule la diferencia entre los valores de dos listas. Usa la función map().
     """
+    # Usamos map con dos listas en paralelo: restamos cada par de elementos
     return list(map(lambda num_l1, num_l2: num_l1 - num_l2, lista1, lista2))
 
 
@@ -391,6 +401,8 @@ def kata40_descuento_tienda_online():
 
 
 if __name__ == "__main__":
+    
+    # Pruebas manuales de las katas
 
     print("\n=== Kata 01 - frecuencia letras ===")
     texto = "Python mola"
