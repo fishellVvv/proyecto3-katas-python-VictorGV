@@ -1,212 +1,244 @@
 # PROYECTO 3 - Katas Python
-
 # Este tercer proyecto consiste en completar, validar y entregar todos los ejercicios de Python que se plantean a continuación:
 
-def kata01_char_frequency(text):
+
+def kata01_frecuencia_letras(texto):
     """
     Escribe una función que reciba una cadena de texto como parámetro y devuelva un diccionario con las frecuencias de cada letra en la cadena. Los espacios no deben ser considerados.
     """
-    frequencies = {}
-    for c in text:
+    frequencias = {}
+    for c in texto:
         if c != " ":
-            frequencies[c] = frequencies.get(c, 0) + 1
-    return frequencies
+            frequencias[c] = frequencias.get(c, 0) + 1
+    return frequencias
 
-def kata02_duplicate_list(numbers):
+
+def kata02_duplicar_lista(numeros):
     """
     Dada una lista de números, obtén una nueva lista con el doble de cada valor. Usa la función map().
     """
-    return list(map(lambda num: num*2, numbers))
+    return list(map(lambda num: num*2, numeros))
 
-def kata03_find_matching_words(words, target):
+
+def kata03_encontrar_coincidentes(palabras, objetivo):
     """
     Escribe una función que tome una lista de palabras y una palabra objetivo como parámetros. La función debe devolver una lista con todas las palabras de la lista original que contengan la palabra objetivo.
     """
-    target_clean = target.strip().lower()
-    if not target_clean:
+    objetivo_limpio = objetivo.strip().lower()
+    if not objetivo_limpio:
         return []
-    
-    return list(filter(lambda w: target_clean in w.lower(), words))
+    return list(filter(lambda p: objetivo_limpio in p.lower(), palabras))
 
-def kata04_diff_lists(list1, list2):
+
+def kata04_diferencia_listas(lista1, lista2):
     """
     Genera una función que calcule la diferencia entre los valores de dos listas. Usa la función map().
     """
     pass
 
-def kata05_average_with_status(numbers, nota_aprobado=5):
+
+def kata05_media_con_estado(numeros, nota_aprobado=5):
     """
     Escribe una función que tome una lista de números como parámetro y un valor opcional nota_aprobado (por defecto 5). La función debe calcular la media de los números en la lista y determinar si la media es mayor o igual que nota_aprobado. Si es así, el estado será "aprobado"; de lo contrario, "suspenso". La función debe devolver una tupla que contenga la media y el estado.
     """
     pass
 
-def kata06_factorial(n):
+
+def kata06_factorial_recursivo(num):
     """
     Escribe una función que calcule el factorial de un número de manera recursiva.
     """
     pass
 
-def kata07_tuples_to_strings(tuples_list):
+
+def kata07_tuplas_a_strings(lista_tuplas):
     """
     Genera una función que convierta una lista de tuplas a una lista de strings. Usa la función map().
     """
     pass
 
-def kata08_safe_division():
+
+def kata08_division_segura():
     """
     Escribe un programa que pida al usuario dos números e intente dividirlos. Si el usuario ingresa un valor no numérico o intenta dividir por cero, maneja esas excepciones de manera adecuada y muestra un mensaje indicando si la división fue exitosa o no.
     """
     pass
 
-def kata09_filter_pets(pet_names):
+
+def kata09_filtrar_mascotas(nombres_mascotas):
     """
     Escribe una función que tome una lista de nombres de mascotas como parámetro y devuelva una nueva lista excluyendo ciertas mascotas prohibidas en España. La lista de mascotas a excluir es ["Mapache", "Tigre", "Serpiente Pitón", "Cocodrilo", "Oso"]. Usa la función filter().
     """
     pass
 
-def kata10_safe_average(numbers):
+
+def kata10_media_segura(numeros):
     """
     Escribe una función que reciba una lista de números y calcule su promedio. Si la lista está vacía, lanza una excepción personalizada y maneja el error adecuadamente.
     """
     pass
 
-def kata11_ask_age():
+
+def kata11_pedir_edad():
     """
     Escribe un programa que pida al usuario que introduzca su edad. Si el usuario ingresa un valor no numérico o un valor fuera del rango esperado (por ejemplo, menor que 0 o mayor que 120), maneja las excepciones adecuadamente.
     """
     pass
 
-def kata12_word_lengths(sentence):
+
+def kata12_longitudes_palabras(frase):
     """
     Genera una función que, al recibir una frase, devuelva una lista con la longitud de cada palabra. Usa la función map().
     """
     pass
 
-def kata13_char_cases(chars):
+
+def kata13_casos_caracteres(caracteres):
     """
     Genera una función que, para un conjunto de caracteres, devuelva una lista de tuplas con cada letra en mayúsculas y minúsculas. Las letras no pueden estar repetidas. Usa la función map().
     """
     pass
 
-def kata14_words_starting_with(words, letter):
+
+def kata14_palabras_que_empiezan_por(palabras, letra):
     """
     Crea una función que retorne las palabras de una lista que comiencen con una letra en específico. Usa la función filter().
     """
     pass
 
-def kata15_add_three_lambda(numbers):
+
+def kata15_sumar_tres_lambda(numeros):
     """
     Crea una función lambda que sume 3 a cada número de una lista dada.
     """
     pass
 
-def kata16_words_longer_than(words, n):
+
+def kata16_palabras_mas_largas_que(palabras, n):
     """
     Escribe una función que tome una cadena de texto y un número entero n como parámetros y devuelva una lista de todas las palabras que sean más largas que n. Usa la función filter().
     """
     pass
 
-def kata17_digits_to_number(digits):
+
+def kata17_digitos_a_numero(digitos):
     """
     Crea una función que tome una lista de dígitos y devuelva el número correspondiente. Por ejemplo, [5,7,2] corresponde al número 572. Usa la función reduce().
     """
     pass
 
-def kata18_filter_top_students():
+
+def kata18_filtrar_mejores_estudiantes():
     """
     Escribe un programa en Python que cree una lista de diccionarios con información de estudiantes (nombre, edad, calificación) y use filter para extraer a los estudiantes con una calificación mayor o igual a 90.
     """
     pass
 
-def kata19_filter_odds_lambda(numbers):
+
+def kata19_filtrar_impares_lambda(numeros):
     """
     Crea una función lambda que filtre los números impares de una lista dada.
     """
     pass
 
-def kata20_filter_integers(values):
+
+def kata20_filtrar_enteros(valores):
     """
     Para una lista con elementos de tipo integer y string, obtén una nueva lista solo con los valores int. Usa la función filter().
     """
     pass
 
-def kata21_cube_lambda(n):
+
+def kata21_cubo_lambda(num):
     """
     Crea una función que calcule el cubo de un número dado mediante una función lambda.
     """
     pass
 
-def kata22_list_product(numbers):
+
+def kata22_producto_lista(numeros):
     """
     Dada una lista numérica, obtén el producto total de los valores. Usa la función reduce().
     """
     pass
 
-def kata23_concatenate_words(words):
+
+def kata23_concatenar_palabras(palabras):
     """
     Concatena una lista de palabras. Usa la función reduce().
     """
     pass
 
-def kata24_total_difference(numbers):
+
+def kata24_diferencia_total(numeros):
     """
     Calcula la diferencia total en los valores de una lista. Usa la función reduce().
     """
     pass
 
-def kata25_count_chars(text):
+
+def kata25_contar_caracteres(texto):
     """
     Crea una función que cuente el número de caracteres en una cadena de texto dada.
     """
     pass
 
-def kata26_mod_lambda(a, b):
+
+def kata26_modulo_lambda(dividendo, divisor):
     """
     Crea una función lambda que calcule el resto de la división entre dos números dados.
     """
     pass
 
-def kata27_average(numbers):
+
+def kata27_promedio(numeros):
     """
     Crea una función que calcule el promedio de una lista de números.
     """
     pass
 
-def kata28_first_duplicate(items):
+
+def kata28_primer_duplicado(elementos):
     """
     Crea una función que busque y devuelva el primer elemento duplicado en una lista dada.
     """
     pass
 
-def kata29_mask_string(value):
+
+def kata29_enmascarar(valor):
     """
     Crea una función que convierta una variable en una cadena de texto y enmascare todos los caracteres con el carácter '#' excepto los últimos cuatro.
     """
     pass
 
-def kata30_are_anagrams(word1, word2):
+
+def kata30_son_anagramas(palabra1, palabra2):
     """
     Crea una función que determine si dos palabras son anagramas, es decir, si están formadas por las mismas letras pero en diferente orden.
     """
     pass
 
-def kata31_find_name_in_input():
+
+def kata31_buscar_nombre():
     """
     Crea una función que solicite al usuario ingresar una lista de nombres y luego un nombre para buscar en esa lista. Si el nombre está en la lista, imprime un mensaje indicando que fue encontrado; de lo contrario, lanza una excepción.
     """
     pass
 
-def kata32_find_employee_position(full_name, employees):
+
+def kata32_buscar_puesto_empleado(nombre_completo, empleados):
     """
     Crea una función que tome un nombre completo y una lista de empleados, busque el nombre en la lista y devuelva el puesto del empleado si se encuentra; de lo contrario, devuelve un mensaje indicando que la persona no trabaja aquí.
     """
     pass
 
-def kata33_sum_lists_lambda(list1, list2):
+
+def kata33_sumar_listas_lambda(lista1, lista2):
     """
     Crea una función lambda que sume elementos correspondientes de dos listas dadas.
     """
     pass
+
 
 class Arbol:
     """
@@ -244,11 +276,12 @@ class Arbol:
     def crecer_ramas(self):
         pass
 
-    def quitar_rama(self, position):
+    def quitar_rama(self, posicion):
         pass
 
     def info_arbol(self):
         pass
+
 
 class UsuarioBanco:
     """
@@ -269,17 +302,18 @@ class UsuarioBanco:
       d. Retirar 50 unidades del saldo de Alicia.
     """
 
-    def __init__(self, name, balance, has_checking_account):
+    def __init__(self, nombre, saldo, tiene_cuenta_corriente):
         pass
 
-    def retirar_dinero(self, amount):
+    def retirar_dinero(self, cantidad):
         pass
 
-    def transferir_dinero(self, other_user, amount):
+    def transferir_dinero(self, otro_usuario, cantidad):
         pass
 
-    def agregar_dinero(self, amount):
+    def agregar_dinero(self, cantidad):
         pass
+
 
 def contar_palabras(texto):
     """
@@ -287,17 +321,20 @@ def contar_palabras(texto):
     """
     pass
 
+
 def reemplazar_palabras(texto, palabra_original, palabra_nueva):
     """
     -> Kata 36: Crear una función reemplazar_palabras para sustituir una palabra_original por una palabra_nueva en el texto y devolver el texto modificado.
     """
     pass
 
+
 def eliminar_palabra(texto, palabra):
     """
     -> Kata 36: Crear una función eliminar_palabra que elimine una palabra del texto y devuelva el texto sin ella.
     """
     pass
+
 
 def procesar_texto(texto, opcion, *args):
     """
@@ -313,13 +350,15 @@ def procesar_texto(texto, opcion, *args):
     """
     pass
 
-def kata37_time_of_day():
+
+def kata37_momento_del_dia():
     """
     Genera un programa que nos indique si es de noche, de día o de tarde según la hora proporcionada por el usuario.
     """
     pass
 
-def kata38_grade_to_text(score):
+
+def kata38_nota_a_texto(nota):
     """
     Escribe un programa que determine qué calificación en texto tiene un alumno según su calificación numérica.
      · Reglas:
@@ -330,13 +369,15 @@ def kata38_grade_to_text(score):
     """
     pass
 
-def kata39_area(figure, data):
+
+def kata39_area(figura, datos):
     """
     Escribe una función que tome dos parámetros: figura (una cadena que puede ser "rectangulo", "circulo" o "triangulo") y datos (una tupla con los datos necesarios para calcular el área de la figura).
     """
     pass
 
-def kata40_online_store_discount():
+
+def kata40_descuento_tienda_online():
     """
     Escribe un programa en Python que utilice condicionales para determinar el monto final de una compra en una tienda en línea, después de aplicar un descuento. El programa debe:
       a. Solicitar al usuario el precio original de un artículo.
@@ -347,6 +388,7 @@ def kata40_online_store_discount():
       f. Usar estructuras de control de flujo (if, elif, else) para llevar a cabo las acciones.
     """
     pass
+
 
 if __name__ == "__main__":
 
