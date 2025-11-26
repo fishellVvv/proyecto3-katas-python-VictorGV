@@ -6,13 +6,17 @@ def kata01_char_frequency(text):
     """
     Escribe una función que reciba una cadena de texto como parámetro y devuelva un diccionario con las frecuencias de cada letra en la cadena. Los espacios no deben ser considerados.
     """
-    pass
+    frequencies = {}
+    for c in text:
+        if c != " ":
+            frequencies[c] = frequencies.get(c, 0) + 1
+    return frequencies
 
 def kata02_duplicate_list(numbers):
     """
     Dada una lista de números, obtén una nueva lista con el doble de cada valor. Usa la función map().
     """
-    pass
+    return list(map(lambda num: num * 2, numbers))
 
 def kata03_find_matching_words(words, target):
     """
@@ -339,3 +343,13 @@ def kata40_online_store_discount():
       f. Usar estructuras de control de flujo (if, elif, else) para llevar a cabo las acciones.
     """
     pass
+
+if __name__ == "__main__":
+
+    print("\n=== Kata 01 ===")
+    text = "Contar palabras"
+    print(f"{text} => {kata01_char_frequency(text)}")
+
+    print("\n=== Kata 02 ===")
+    numbers = [1, 2, 3, 4, 5]
+    print(f"{numbers} => {kata02_duplicate_list(numbers)}")
