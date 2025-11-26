@@ -16,13 +16,17 @@ def kata02_duplicate_list(numbers):
     """
     Dada una lista de números, obtén una nueva lista con el doble de cada valor. Usa la función map().
     """
-    return list(map(lambda num: num * 2, numbers))
+    return list(map(lambda num: num*2, numbers))
 
 def kata03_find_matching_words(words, target):
     """
     Escribe una función que tome una lista de palabras y una palabra objetivo como parámetros. La función debe devolver una lista con todas las palabras de la lista original que contengan la palabra objetivo.
     """
-    pass
+    target_clean = target.strip().lower()
+    if not target_clean:
+        return []
+    
+    return list(filter(lambda w: target_clean in w.lower(), words))
 
 def kata04_diff_lists(list1, list2):
     """
@@ -30,7 +34,7 @@ def kata04_diff_lists(list1, list2):
     """
     pass
 
-def kata05_average_with_status(numbers, passing_grade=5):
+def kata05_average_with_status(numbers, nota_aprobado=5):
     """
     Escribe una función que tome una lista de números como parámetro y un valor opcional nota_aprobado (por defecto 5). La función debe calcular la media de los números en la lista y determinar si la media es mayor o igual que nota_aprobado. Si es así, el estado será "aprobado"; de lo contrario, "suspenso". La función debe devolver una tupla que contenga la media y el estado.
     """
@@ -353,3 +357,8 @@ if __name__ == "__main__":
     print("\n=== Kata 02 ===")
     numbers = [1, 2, 3, 4, 5]
     print(f"{numbers} => {kata02_duplicate_list(numbers)}")
+
+    print("\n=== Kata 03 ===")
+    words = ["dataset", "date", "delta", "Datas"]
+    target = "data"
+    print(f"{target}, {words} => {kata03_find_matching_words(words, target)}")
