@@ -34,7 +34,7 @@ def kata04_diferencia_listas(lista1, lista2):
     """
     Genera una función que calcule la diferencia entre los valores de dos listas. Usa la función map().
     """
-    pass
+    return list(map(lambda num_l1, num_l2: num_l1 - num_l2, lista1, lista2))
 
 
 def kata05_media_con_estado(numeros, nota_aprobado=5):
@@ -392,15 +392,20 @@ def kata40_descuento_tienda_online():
 
 if __name__ == "__main__":
 
-    print("\n=== Kata 01 ===")
-    text = "Contar palabras"
-    print(f"{text} => {kata01_char_frequency(text)}")
+    print("\n=== Kata 01 - frecuencia letras ===")
+    texto = "Python mola"
+    print(f"'{texto}' => {kata01_frecuencia_letras(texto)}")
 
-    print("\n=== Kata 02 ===")
-    numbers = [1, 2, 3, 4, 5]
-    print(f"{numbers} => {kata02_duplicate_list(numbers)}")
+    print("\n=== Kata 02 - duplicar lista ===")
+    numeros = [1, 2, 3, 4, 5]
+    print(f"{numeros} => {kata02_duplicar_lista(numeros)}")
 
-    print("\n=== Kata 03 ===")
-    words = ["dataset", "date", "delta", "Datas"]
-    target = "data"
-    print(f"{target}, {words} => {kata03_find_matching_words(words, target)}")
+    print("\n=== Kata 03 - encontrar coincidentes ===")
+    palabras = ["dataset", "date", "delta", "Datas"]
+    objetivo = "data"
+    print(f"'{objetivo}' en {palabras} => {kata03_encontrar_coincidentes(palabras, objetivo)}")
+
+    print("\n=== Kata 04 - diferencia entre listas ===")
+    lista1 = [7, 22, 10, 42]
+    lista2 = [6, 44, -4, 42]
+    print(f"{lista1} - {lista2} => {kata04_diferencia_listas(lista1, lista2)}")
