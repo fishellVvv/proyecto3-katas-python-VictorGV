@@ -82,7 +82,8 @@ def kata07_tuplas_a_strings(lista_tuplas):
     """
     Genera una función que convierta una lista de tuplas a una lista de strings. Usa la función map().
     """
-    pass
+    # Convertimos cada elemento de la tupla a str y los unimos con '-' usando el método join
+    return list(map(lambda tupla: "-".join(map(str, tupla)), lista_tuplas))
 
 
 def kata08_division_segura():
@@ -449,3 +450,7 @@ if __name__ == "__main__":
         print(f"{num} => {kata06_factorial_recursivo(num)}")
     except Exception as e:
         print(f"Error: {e}")
+
+    print("\n=== Kata 07 - tuplas a string ===")
+    lista_tuplas = [("Kata", 7), ("ThePower", "Python")]
+    print(f"{lista_tuplas} => {kata07_tuplas_a_strings(lista_tuplas)}")
