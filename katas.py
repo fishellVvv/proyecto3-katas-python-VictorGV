@@ -154,7 +154,9 @@ def kata12_longitudes_palabras(frase):
     """
     Genera una función que, al recibir una frase, devuelva una lista con la longitud de cada palabra. Usa la función map().
     """
-    pass
+    palabras = frase.split(" ")
+    # Aplicamos una función lambda a cada palabra con map para calcular su longitud
+    return list(map(lambda palabra: len(palabra), palabras))
 
 
 def kata13_casos_caracteres(caracteres):
@@ -511,3 +513,7 @@ if __name__ == "__main__":
 
     print("\n=== Kata 11 - pedir edad ===")
     kata11_pedir_edad()
+
+    print("\n=== Kata 12 - longitudes palabras ===")
+    frase = "Lorem ipsum dolor sit amet"
+    print(f"'{frase}' => {kata12_longitudes_palabras(frase)}")
