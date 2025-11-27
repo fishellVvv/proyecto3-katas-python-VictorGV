@@ -1,3 +1,5 @@
+from functools import reduce
+
 # PROYECTO 3 - Katas Python
 # Este tercer proyecto consiste en completar, validar y entregar todos los ejercicios de Python que se plantean a continuación:
 
@@ -22,7 +24,7 @@ def kata02_duplicar_lista(numeros):
     Dada una lista de números, obtén una nueva lista con el doble de cada valor. Usa la función map().
     """
     # Aplicamos una función lambda a cada número con map para duplicar su valor
-    return list(map(lambda num: num*2, numeros))
+    return list(map(lambda num: num * 2, numeros))
 
 
 def kata03_encontrar_coincidentes(palabras, objetivo):
@@ -47,11 +49,19 @@ def kata04_diferencia_listas(lista1, lista2):
     return list(map(lambda num_l1, num_l2: num_l1 - num_l2, lista1, lista2))
 
 
-def kata05_media_con_estado(numeros, nota_aprobado=5):
+def kata05_media_con_estado(notas, nota_aprobado=5):
     """
     Escribe una función que tome una lista de números como parámetro y un valor opcional nota_aprobado (por defecto 5). La función debe calcular la media de los números en la lista y determinar si la media es mayor o igual que nota_aprobado. Si es así, el estado será "aprobado"; de lo contrario, "suspenso". La función debe devolver una tupla que contenga la media y el estado.
     """
-    pass
+    # Si no hay notas la media es 0
+    if not notas:
+        return 0, "suspenso"
+    # Calculamos la media de la lista de números
+    nota_media = sum(notas) / len(notas)
+    # Decidimos el estado
+    estado = "aprobado" if nota_media >= nota_aprobado else "suspenso"
+    # Devolvemos la tupla
+    return nota_media, estado
 
 
 def kata06_factorial_recursivo(num):
@@ -401,7 +411,7 @@ def kata40_descuento_tienda_online():
 
 
 if __name__ == "__main__":
-    
+
     # Pruebas manuales de las katas
 
     print("\n=== Kata 01 - frecuencia letras ===")
@@ -421,3 +431,7 @@ if __name__ == "__main__":
     lista1 = [7, 22, 10, 42]
     lista2 = [6, 44, -4, 42]
     print(f"{lista1} - {lista2} => {kata04_diferencia_listas(lista1, lista2)}")
+
+    print("\n=== Kata 05 - media con estado ===")
+    notas = [7, 6, 10, 3]
+    print(f"{notas} => {kata05_media_con_estado(notas)}")
