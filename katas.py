@@ -90,7 +90,22 @@ def kata08_division_segura():
     """
     Escribe un programa que pida al usuario dos números e intente dividirlos. Si el usuario ingresa un valor no numérico o intenta dividir por cero, maneja esas excepciones de manera adecuada y muestra un mensaje indicando si la división fue exitosa o no.
     """
-    pass
+    dividendo = input("Introduce el dividendo: ")
+    divisor = input("Introduce el divisor: ")
+    try:
+        # Intentamos convertir a float y realizar la división
+        dividendo = float(dividendo)
+        divisor = float(divisor)
+        resultado = dividendo / divisor
+    except ValueError:
+        # Alguno de los valores no es numérico
+        print(f"La división '{dividendo}/{divisor}' no fue exitosa, los valores deben ser numéricos")
+    except ZeroDivisionError:
+        # El divisor es cero
+        print(f"La división '{dividendo}/{divisor}' no fue exitosa, no se puede dividir entre cero")
+    else:
+        # Si no ha habido ninguna excepción nos da la respuesta exitosa
+        print(f"La división '{dividendo}/{divisor}={resultado}' fue exitosa")
 
 
 def kata09_filtrar_mascotas(nombres_mascotas):
@@ -454,3 +469,6 @@ if __name__ == "__main__":
     print("\n=== Kata 07 - tuplas a string ===")
     lista_tuplas = [("Kata", 7), ("ThePower", "Python")]
     print(f"{lista_tuplas} => {kata07_tuplas_a_strings(lista_tuplas)}")
+
+    print("\n=== Kata 08 - división segura ===")
+    kata08_division_segura()
