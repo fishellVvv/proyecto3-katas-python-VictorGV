@@ -1,5 +1,9 @@
 from functools import reduce
 
+class ListaVaciaError(Exception):
+    """Excepción personalizada para listas vacías en kata10_media_segura."""
+    pass
+
 # PROYECTO 3 - Katas Python
 # Este tercer proyecto consiste en completar, validar y entregar todos los ejercicios de Python que se plantean a continuación:
 
@@ -113,6 +117,7 @@ def kata09_filtrar_mascotas(nombres_mascotas):
     Escribe una función que tome una lista de nombres de mascotas como parámetro y devuelva una nueva lista excluyendo ciertas mascotas prohibidas en España. La lista de mascotas a excluir es ["Mapache", "Tigre", "Serpiente Pitón", "Cocodrilo", "Oso"]. Usa la función filter().
     """
     mascotas_prohibidas = ["Mapache", "Tigre", "Serpiente Pitón", "Cocodrilo", "Oso"]
+    # Usamos filter + lambda para quedarnos solo con las mascotas cuyo nombre (normalizado con title()) no está en la lista de prohibidas
     return list(filter(lambda mascota: mascota.title() not in mascotas_prohibidas, nombres_mascotas))
 
 
@@ -120,8 +125,12 @@ def kata10_media_segura(numeros):
     """
     Escribe una función que reciba una lista de números y calcule su promedio. Si la lista está vacía, lanza una excepción personalizada y maneja el error adecuadamente.
     """
-    pass
-
+    if not numeros:
+        # Si la lista está vacía lanzamos excepción personalizada
+        raise ListaVaciaError("La lista de números está vacía")
+    # Calculamos la media de la lista de números
+    return sum(numeros) / len(numeros)
+    
 
 def kata11_pedir_edad():
     """
@@ -464,8 +473,10 @@ if __name__ == "__main__":
     try:
         num = 5
         print(f"{num} => {kata06_factorial_recursivo(num)}")
+    except ValueError as e:
+        print(f"{num} => Error valor negativo: {e}")
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"{num} => Error: {e}")
 
     print("\n=== Kata 07 - tuplas a string ===")
     lista_tuplas = [("Kata", 7), ("ThePower", "Python")]
@@ -477,3 +488,12 @@ if __name__ == "__main__":
     print("\n=== Kata 09 - filtrar mascotas ===")
     nombres_mascotas = ["Perro", "Tigre", "Gato", "Oso"]
     print(f"{nombres_mascotas} => {kata09_filtrar_mascotas(nombres_mascotas)}")
+
+    print("\n=== Kata 10 - media segura ===")
+    try:
+        numeros = [7, 6, 10, 3]
+        print(f"{numeros} => {kata10_media_segura(numeros)}")
+    except ListaVaciaError as e:
+        print(f"{numeros} => Error de datos: {e}")
+    except Exception as e:
+        print(f"{numeros} => Error: {e}")
