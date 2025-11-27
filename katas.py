@@ -136,7 +136,18 @@ def kata11_pedir_edad():
     """
     Escribe un programa que pida al usuario que introduzca su edad. Si el usuario ingresa un valor no numérico o un valor fuera del rango esperado (por ejemplo, menor que 0 o mayor que 120), maneja las excepciones adecuadamente.
     """
-    pass
+    edad = input("Indica tu edad: ")
+    try:
+        edad = int(edad)
+        if edad < 0 or edad > 120:
+            # Forzamos un ValueError si la edad está fuera del rango esperado
+            raise ValueError("Edad fuera de rango (0-120)")
+    except ValueError:
+        # Cualquier problema de conversión o rango se maneja aquí
+        print("Error: introduce una edad numérica entre 0 y 120.")
+    else:
+        # Si no ha habido ninguna excepción te escribe un mensaje
+        print(f"Tu edad es {edad}, ¡estás en tu mejor momento!")
 
 
 def kata12_longitudes_palabras(frase):
@@ -497,3 +508,6 @@ if __name__ == "__main__":
         print(f"{numeros} => Error de datos: {e}")
     except Exception as e:
         print(f"{numeros} => Error: {e}")
+
+    print("\n=== Kata 11 - pedir edad ===")
+    kata11_pedir_edad()
