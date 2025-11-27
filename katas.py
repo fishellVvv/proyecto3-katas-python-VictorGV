@@ -99,20 +99,21 @@ def kata08_division_segura():
         resultado = dividendo / divisor
     except ValueError:
         # Alguno de los valores no es numérico
-        print(f"La división '{dividendo}/{divisor}' no fue exitosa, los valores deben ser numéricos")
+        print(f"La división '{dividendo} / {divisor}' no fue exitosa, los valores deben ser numéricos")
     except ZeroDivisionError:
         # El divisor es cero
-        print(f"La división '{dividendo}/{divisor}' no fue exitosa, no se puede dividir entre cero")
+        print(f"La división '{dividendo} / {divisor}' no fue exitosa, no se puede dividir entre cero")
     else:
         # Si no ha habido ninguna excepción nos da la respuesta exitosa
-        print(f"La división '{dividendo}/{divisor}={resultado}' fue exitosa")
+        print(f"La división '{dividendo} / {divisor} = {resultado}' fue exitosa")
 
 
 def kata09_filtrar_mascotas(nombres_mascotas):
     """
     Escribe una función que tome una lista de nombres de mascotas como parámetro y devuelva una nueva lista excluyendo ciertas mascotas prohibidas en España. La lista de mascotas a excluir es ["Mapache", "Tigre", "Serpiente Pitón", "Cocodrilo", "Oso"]. Usa la función filter().
     """
-    pass
+    mascotas_prohibidas = ["Mapache", "Tigre", "Serpiente Pitón", "Cocodrilo", "Oso"]
+    return list(filter(lambda mascota: mascota.title() not in mascotas_prohibidas, nombres_mascotas))
 
 
 def kata10_media_segura(numeros):
@@ -472,3 +473,7 @@ if __name__ == "__main__":
 
     print("\n=== Kata 08 - división segura ===")
     kata08_division_segura()
+
+    print("\n=== Kata 09 - filtrar mascotas ===")
+    nombres_mascotas = ["Perro", "Tigre", "Gato", "Oso"]
+    print(f"{nombres_mascotas} => {kata09_filtrar_mascotas(nombres_mascotas)}")
