@@ -68,7 +68,14 @@ def kata06_factorial_recursivo(num):
     """
     Escribe una función que calcule el factorial de un número de manera recursiva.
     """
-    pass
+    # No existe el factorial de números negativos
+    if num < 0:
+        return None
+    # El factorial de 0 y 1 es 1
+    elif num <= 1:
+        return 1
+    # Usamos la recursividad para ir multiplicando por cada iteración de num - 1
+    return num * kata06_factorial_recursivo(num - 1)
 
 
 def kata07_tuplas_a_strings(lista_tuplas):
@@ -435,3 +442,7 @@ if __name__ == "__main__":
     print("\n=== Kata 05 - media con estado ===")
     notas = [7, 6, 10, 3]
     print(f"{notas} => {kata05_media_con_estado(notas)}")
+
+    print("\n=== Kata 06 - factorial recursivo ===")
+    num = 5
+    print(f"{num} => {kata06_factorial_recursivo(num)}")
