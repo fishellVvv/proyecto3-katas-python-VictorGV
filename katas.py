@@ -70,7 +70,7 @@ def kata06_factorial_recursivo(num):
     """
     # No existe el factorial de números negativos
     if num < 0:
-        return None
+        raise ValueError("El factorial no está definido para números negativos")
     # El factorial de 0 y 1 es 1
     elif num <= 1:
         return 1
@@ -444,5 +444,8 @@ if __name__ == "__main__":
     print(f"{notas} => {kata05_media_con_estado(notas)}")
 
     print("\n=== Kata 06 - factorial recursivo ===")
-    num = 5
-    print(f"{num} => {kata06_factorial_recursivo(num)}")
+    try:
+        num = 5
+        print(f"{num} => {kata06_factorial_recursivo(num)}")
+    except Exception as e:
+        print(f"Error: {e}")
