@@ -238,7 +238,8 @@ def kata21_cubo_lambda(num):
     """
     Crea una función que calcule el cubo de un número dado mediante una función lambda.
     """
-    pass
+    cubo = lambda n: n ** 3
+    return cubo(num)
 
 
 def kata22_producto_lista(numeros):
@@ -571,6 +572,8 @@ if __name__ == "__main__":
     print(f"{valores} => {kata20_filtrar_enteros(valores)}")
 
     print("\n=== Kata 21 - cubo con lambda ===")
+    num = 5
+    print(f"{num} => {kata21_cubo_lambda(num)}")
 
     print("\n=== Kata 22 - prodücto de una lista ===")
 
