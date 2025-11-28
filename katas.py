@@ -187,18 +187,20 @@ def kata15_sumar_tres_lambda(numeros):
     return list(map(lambda num: num + 3, numeros))
 
 
-def kata16_palabras_mas_largas_que(palabras, n):
+def kata16_palabras_mas_largas_que(frase, n):
     """
     Escribe una función que tome una cadena de texto y un número entero n como parámetros y devuelva una lista de todas las palabras que sean más largas que n. Usa la función filter().
     """
-    pass
+    # Separamos la frase por espacios
+    palabras = frase.split()
+    # Aplicamos una función lambda a cada palabra para comparar su longitud con n
+    return list(filter(lambda palabra: len(palabra) > n, palabras))
 
 
 def kata17_digitos_a_numero(digitos):
     """
     Crea una función que tome una lista de dígitos y devuelva el número correspondiente. Por ejemplo, [5,7,2] corresponde al número 572. Usa la función reduce().
     """
-    pass
 
 
 def kata18_filtrar_mejores_estudiantes():
@@ -539,6 +541,9 @@ if __name__ == "__main__":
     print(f"{numeros} => {kata15_sumar_tres_lambda(numeros)}")
 
     print("\n=== Kata 16 - palabras mas largas que ===")
+    frase = "Prepara los dados, la ficha y el bolígrafo"
+    n = 6
+    print(f"'{frase}' > {n} => {kata16_palabras_mas_largas_que(frase, n)}")
 
     print("\n=== Kata 17 - dígitos a número ===")
 
