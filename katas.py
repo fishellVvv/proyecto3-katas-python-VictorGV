@@ -183,7 +183,8 @@ def kata15_sumar_tres_lambda(numeros):
     """
     Crea una función lambda que sume 3 a cada número de una lista dada.
     """
-    pass
+    # Aplicamos una función lambda a cada número con map para sumar 3
+    return list(map(lambda num: num + 3, numeros))
 
 
 def kata16_palabras_mas_largas_que(palabras, n):
@@ -529,6 +530,61 @@ if __name__ == "__main__":
     print(f"'{caracteres}' => {kata13_mayuscula_minuscula(caracteres)}")
 
     print("\n=== Kata 14 - palabras que empiezan por ===")
-    palabras = ["Dado", "Lapiz", "", "libro"]
+    palabras = ["Dado", "Lápiz", "", "libro"]
     letra = "l"
     print(f"{palabras} empieza por '{letra}' => {kata14_palabras_que_empiezan_por(palabras, letra)}")
+
+    print("\n=== Kata 15 - sumar tres con lambda ===")
+    numeros = [1, 2, 3, 4, 5]
+    print(f"{numeros} => {kata15_sumar_tres_lambda(numeros)}")
+
+    print("\n=== Kata 16 - palabras mas largas que ===")
+
+    print("\n=== Kata 17 - dígitos a número ===")
+
+    print("\n=== Kata 18 - filtrar mejores estudiantes ===")
+
+    print("\n=== Kata 19 - filtrar impares con lambda ===")
+
+    print("\n=== Kata 20 - filtrar enteros ===")
+
+    print("\n=== Kata 21 - cubo con lambda ===")
+
+    print("\n=== Kata 22 - prodücto de una lista ===")
+
+    print("\n=== Kata 23 - concatenar palabras ===")
+
+    print("\n=== Kata 24 - diferencia total ===")
+
+    print("\n=== Kata 25 - contar caracteres ===")
+
+    print("\n=== Kata 26 - modulo con lambda ===")
+
+    print("\n=== Kata 27 - promedio ===")
+
+    print("\n=== Kata 28 - primer duplicado ===")
+
+    print("\n=== Kata 29 - enmascarar ===")
+
+    print("\n=== Kata 30 - son anagramas ===")
+
+    print("\n=== Kata 31 - buscar nombre ===")
+
+    print("\n=== Kata 32 - buscar puesto empleado ===")
+
+    print("\n=== Kata 33 - sumar listas con lambda ===")
+
+    print("\n=== Kata 34 - clase Arbol ===")
+
+    print("\n=== Kata 35 - clase UsuarioBanco ===")
+
+    print("\n=== Kata 36 - procesar texto ===")
+
+    print("\n=== Kata 37 - momento del día ===")
+
+    print("\n=== Kata 38 - nota a texto ===")
+
+    print("\n=== Kata 39 - area ===")
+
+    print("\n=== Kata 40 - descuento tienda online ===")
+    
