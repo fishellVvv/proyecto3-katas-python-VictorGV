@@ -238,6 +238,7 @@ def kata21_cubo_lambda(num):
     """
     Crea una función que calcule el cubo de un número dado mediante una función lambda.
     """
+    # definimos la función cubo con lambda
     cubo = lambda n: n ** 3
     return cubo(num)
 
@@ -254,13 +255,15 @@ def kata23_concatenar_palabras(palabras):
     """
     Concatena una lista de palabras. Usa la función reduce().
     """
+    # Controlamos el caso de que la lista esté vacía y concatenamos con "_"
     return reduce(lambda acumulador, palabra: palabra if acumulador == "" else acumulador + "_" + palabra, palabras, "")
 
 def kata24_diferencia_total(numeros):
     """
     Calcula la diferencia total en los valores de una lista. Usa la función reduce().
     """
-    pass
+    # En cada iteración restamos al acumulador
+    return reduce(lambda acumulador, num: acumulador - num, numeros)
 
 
 def kata25_contar_caracteres(texto):
@@ -584,6 +587,8 @@ if __name__ == "__main__":
     print(f"{palabras} => {kata23_concatenar_palabras(palabras)}")
 
     print("\n=== Kata 24 - diferencia total ===")
+    numeros = [42, 7, 9, 4]
+    print(f"{numeros} => {kata24_diferencia_total(numeros)}")
 
     print("\n=== Kata 25 - contar caracteres ===")
 
