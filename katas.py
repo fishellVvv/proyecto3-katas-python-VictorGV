@@ -222,6 +222,8 @@ def kata19_filtrar_impares_lambda(numeros):
     """
     Crea una función lambda que filtre los números impares de una lista dada.
     """
+    # Aplicamos una función lambda a cada número para comprobar si es impar
+    return list(filter(lambda num: num % 2 != 0, numeros))
 
 
 def kata20_filtrar_enteros(valores):
@@ -560,6 +562,8 @@ if __name__ == "__main__":
     print(f"{kata18_filtrar_mejores_estudiantes()}")
 
     print("\n=== Kata 19 - filtrar impares con lambda ===")
+    numeros = [1, 2, 3, 4, 5]
+    print(f"{numeros} => {kata19_filtrar_impares_lambda(numeros)}")
 
     print("\n=== Kata 20 - filtrar enteros ===")
 
