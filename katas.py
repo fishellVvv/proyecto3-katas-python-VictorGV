@@ -201,6 +201,8 @@ def kata17_digitos_a_numero(digitos):
     """
     Crea una función que tome una lista de dígitos y devuelva el número correspondiente. Por ejemplo, [5,7,2] corresponde al número 572. Usa la función reduce().
     """
+    # En cada iteración multiplicamos por 10 y le sumamos el siguiente dígito (comenzando por 0)
+    return reduce(lambda acumulador, num: (acumulador * 10) + num, digitos, 0)
 
 
 def kata18_filtrar_mejores_estudiantes():
@@ -546,6 +548,8 @@ if __name__ == "__main__":
     print(f"'{frase}' > {n} => {kata16_palabras_mas_largas_que(frase, n)}")
 
     print("\n=== Kata 17 - dígitos a número ===")
+    digitos = [3, 1, 4]
+    print(f"{digitos} => {kata17_digitos_a_numero(digitos)}")
 
     print("\n=== Kata 18 - filtrar mejores estudiantes ===")
 
