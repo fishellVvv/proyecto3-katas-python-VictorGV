@@ -278,7 +278,9 @@ def kata26_modulo_lambda(dividendo, divisor):
     """
     Crea una función lambda que calcule el resto de la división entre dos números dados.
     """
-    pass
+    # definimos la función módulo con lambda
+    modulo = lambda num1, num2: num1 % num2
+    return modulo(dividendo, divisor)
 
 
 def kata27_promedio(numeros):
@@ -596,6 +598,9 @@ if __name__ == "__main__":
     print(f"'{texto}' => {kata25_contar_caracteres(texto)}")
 
     print("\n=== Kata 26 - modulo con lambda ===")
+    dividendo = 15
+    divisor = 4
+    print(f"{dividendo} % {divisor} => {kata26_modulo_lambda(dividendo, divisor)}")
 
     print("\n=== Kata 27 - promedio ===")
 
