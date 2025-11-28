@@ -287,7 +287,11 @@ def kata27_promedio(numeros):
     """
     Crea una función que calcule el promedio de una lista de números.
     """
-    pass
+     # Si no hay números la media es 0
+    if not numeros:
+        return 0.0
+    # Calculamos el promedio de la lista de números
+    return sum(numeros) / len(numeros)
 
 
 def kata28_primer_duplicado(elementos):
@@ -603,6 +607,8 @@ if __name__ == "__main__":
     print(f"{dividendo} % {divisor} => {kata26_modulo_lambda(dividendo, divisor)}")
 
     print("\n=== Kata 27 - promedio ===")
+    numeros = [42, 7, 9, 2]
+    print(f"{numeros} => {kata27_promedio(numeros)}")
 
     print("\n=== Kata 28 - primer duplicado ===")
 
