@@ -254,8 +254,7 @@ def kata23_concatenar_palabras(palabras):
     """
     Concatena una lista de palabras. Usa la función reduce().
     """
-    pass
-
+    return reduce(lambda acumulador, palabra: palabra if acumulador == "" else acumulador + "_" + palabra, palabras, "")
 
 def kata24_diferencia_total(numeros):
     """
@@ -581,6 +580,8 @@ if __name__ == "__main__":
     print(f"{numeros} => {kata22_producto_lista(numeros)}")
 
     print("\n=== Kata 23 - concatenar palabras ===")
+    palabras = ["beautiful", "is", "better", "than", "ugly"]
+    print(f"{palabras} => {kata23_concatenar_palabras(palabras)}")
 
     print("\n=== Kata 24 - diferencia total ===")
 
