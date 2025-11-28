@@ -287,7 +287,7 @@ def kata27_promedio(numeros):
     """
     Crea una función que calcule el promedio de una lista de números.
     """
-     # Si no hay números la media es 0
+    # Si no hay números la media es 0
     if not numeros:
         return 0.0
     # Calculamos el promedio de la lista de números
@@ -298,7 +298,15 @@ def kata28_primer_duplicado(elementos):
     """
     Crea una función que busque y devuelva el primer elemento duplicado en una lista dada.
     """
-    pass
+    revisados = []
+    for elemento in elementos:
+        # Cuando encuentra el primer duplicado lo devuelve
+        if elemento in revisados:
+            return elemento
+        # Si es un elemento nuevo lo añadimos a la lista de revisados
+        revisados.append(elemento)
+    # Si no hay duplicados, devolvemos None
+    return None
 
 
 def kata29_enmascarar(valor):
@@ -611,6 +619,8 @@ if __name__ == "__main__":
     print(f"{numeros} => {kata27_promedio(numeros)}")
 
     print("\n=== Kata 28 - primer duplicado ===")
+    elementos = ["patatas", "5", "bebida", 5, "patatas"]
+    print(f"{elementos} => {kata28_primer_duplicado(elementos)}")
 
     print("\n=== Kata 29 - enmascarar ===")
 
