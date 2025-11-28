@@ -247,6 +247,9 @@ def kata22_producto_lista(numeros):
     """
     Dada una lista numérica, obtén el producto total de los valores. Usa la función reduce().
     """
+    # Si la lista está vacía devolvemos 0
+    if not numeros:
+        return 0
     # En cada iteración multiplicamos al acumulador (comenzando por 1)
     return reduce(lambda acumulador, num: acumulador * num, numeros, 1)
 
@@ -262,6 +265,9 @@ def kata24_diferencia_total(numeros):
     """
     Calcula la diferencia total en los valores de una lista. Usa la función reduce().
     """
+    # Si la lista está vacía devolvemos 0
+    if not numeros:
+        return 0
     # En cada iteración restamos al acumulador
     return reduce(lambda acumulador, num: acumulador - num, numeros)
 
@@ -278,6 +284,8 @@ def kata26_modulo_lambda(dividendo, divisor):
     """
     Crea una función lambda que calcule el resto de la división entre dos números dados.
     """
+    if divisor == 0:
+        raise ValueError("El divisor no puede ser 0")
     # definimos la función módulo con lambda
     modulo = lambda num1, num2: num1 % num2
     return modulo(dividendo, divisor)
@@ -612,7 +620,12 @@ if __name__ == "__main__":
     print("\n=== Kata 26 - modulo con lambda ===")
     dividendo = 15
     divisor = 4
-    print(f"{dividendo} % {divisor} => {kata26_modulo_lambda(dividendo, divisor)}")
+    try:
+        print(f"{dividendo} % {divisor} => {kata26_modulo_lambda(dividendo, divisor)}")
+    except ValueError as e:
+        print(f"{num} => Error: {e}")
+    except Exception as e:
+        print(f"{num} => Error: {e}")
 
     print("\n=== Kata 27 - promedio ===")
     numeros = [42, 7, 9, 2]
