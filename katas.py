@@ -205,18 +205,23 @@ def kata17_digitos_a_numero(digitos):
     return reduce(lambda acumulador, num: (acumulador * 10) + num, digitos, 0)
 
 
-def kata18_filtrar_mejores_estudiantes():
+def kata18_filtrar_mejores_estudiantes(nota_corte=90):
     """
     Escribe un programa en Python que cree una lista de diccionarios con información de estudiantes (nombre, edad, calificación) y use filter para extraer a los estudiantes con una calificación mayor o igual a 90.
     """
-    pass
+    estudiantes = [
+        {"nombre": "Pepe", "edad": 25, "calificacion": 90},
+        {"nombre": "Luisa", "edad": 20, "calificacion": 96},
+        {"nombre": "Andrés", "edad": 31, "calificacion": 78},
+    ]
+    # Comparamos la calificación para comprobar que sea >= que la nota de corte (por defecto 90)
+    return list(filter(lambda estudiante: estudiante["calificacion"] >= nota_corte, estudiantes))
 
 
 def kata19_filtrar_impares_lambda(numeros):
     """
     Crea una función lambda que filtre los números impares de una lista dada.
     """
-    pass
 
 
 def kata20_filtrar_enteros(valores):
@@ -552,6 +557,7 @@ if __name__ == "__main__":
     print(f"{digitos} => {kata17_digitos_a_numero(digitos)}")
 
     print("\n=== Kata 18 - filtrar mejores estudiantes ===")
+    print(f"{kata18_filtrar_mejores_estudiantes()}")
 
     print("\n=== Kata 19 - filtrar impares con lambda ===")
 
