@@ -158,7 +158,7 @@ def kata12_longitudes_palabras(frase):
     return list(map(len, palabras))
 
 
-def kata13_casos_caracteres(caracteres):
+def kata13_mayuscula_minuscula(caracteres):
     """
     Genera una función que, para un conjunto de caracteres, devuelva una lista de tuplas con cada letra en mayúsculas y minúsculas. Las letras no pueden estar repetidas. Usa la función map().
     """
@@ -175,7 +175,8 @@ def kata14_palabras_que_empiezan_por(palabras, letra):
     """
     Crea una función que retorne las palabras de una lista que comiencen con una letra en específico. Usa la función filter().
     """
-    pass
+    # Nos quedamos con las palabras que empiezan por la letra ignorando mayúsculas (y evitando error si la palabra está vacía)
+    return list(filter(lambda palabra: palabra != "" and palabra[0].lower() == letra.lower() , palabras))
 
 
 def kata15_sumar_tres_lambda(numeros):
@@ -519,10 +520,15 @@ if __name__ == "__main__":
     print("\n=== Kata 11 - pedir edad ===")
     kata11_pedir_edad()
 
-    print("\n=== Kata 12 - longitudes palabras ===")
+    print("\n=== Kata 12 - longitudes de palabras ===")
     frase = "Lorem ipsum dolor sit amet"
     print(f"'{frase}' => {kata12_longitudes_palabras(frase)}")
 
-    print("\n=== Kata 13 - casos caracteres ===")
+    print("\n=== Kata 13 - mayúscula y minúscula ===")
     caracteres = "PaTAta"
-    print(f"'{caracteres}' => {kata13_casos_caracteres(caracteres)}")
+    print(f"'{caracteres}' => {kata13_mayuscula_minuscula(caracteres)}")
+
+    print("\n=== Kata 14 - palabras que empiezan por ===")
+    palabras = ["Dado", "Lapiz", "", "libro"]
+    letra = "l"
+    print(f"{palabras} empieza por '{letra}' => {kata14_palabras_que_empiezan_por(palabras, letra)}")
