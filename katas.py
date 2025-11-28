@@ -246,7 +246,8 @@ def kata22_producto_lista(numeros):
     """
     Dada una lista numérica, obtén el producto total de los valores. Usa la función reduce().
     """
-    pass
+    # En cada iteración multiplicamos al acumulador (comenzando por 1)
+    return reduce(lambda acumulador, num: acumulador * num, numeros, 1)
 
 
 def kata23_concatenar_palabras(palabras):
@@ -576,6 +577,8 @@ if __name__ == "__main__":
     print(f"{num} => {kata21_cubo_lambda(num)}")
 
     print("\n=== Kata 22 - prodücto de una lista ===")
+    numeros = [2, 5, 11, 2]
+    print(f"{numeros} => {kata22_producto_lista(numeros)}")
 
     print("\n=== Kata 23 - concatenar palabras ===")
 
