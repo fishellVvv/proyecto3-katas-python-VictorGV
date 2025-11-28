@@ -270,7 +270,8 @@ def kata25_contar_caracteres(texto):
     """
     Crea una función que cuente el número de caracteres en una cadena de texto dada.
     """
-    pass
+    # básicamente un len()... (espero que el objetivo de la kata no fuese hacer un for in)
+    return len(texto)
 
 
 def kata26_modulo_lambda(dividendo, divisor):
@@ -519,7 +520,7 @@ if __name__ == "__main__":
     print(f"{lista_tuplas} => {kata07_tuplas_a_strings(lista_tuplas)}")
 
     print("\n=== Kata 08 - división segura ===")
-    kata08_division_segura()
+    # kata08_division_segura()
 
     print("\n=== Kata 09 - filtrar mascotas ===")
     nombres_mascotas = ["Perro", "Tigre", "Gato", "Oso"]
@@ -535,7 +536,7 @@ if __name__ == "__main__":
         print(f"{numeros} => Error: {e}")
 
     print("\n=== Kata 11 - pedir edad ===")
-    kata11_pedir_edad()
+    # kata11_pedir_edad()
 
     print("\n=== Kata 12 - longitudes de palabras ===")
     frase = "Lorem ipsum dolor sit amet"
@@ -587,10 +588,12 @@ if __name__ == "__main__":
     print(f"{palabras} => {kata23_concatenar_palabras(palabras)}")
 
     print("\n=== Kata 24 - diferencia total ===")
-    numeros = [42, 7, 9, 4]
+    numeros = [42, 7, 9, 2]
     print(f"{numeros} => {kata24_diferencia_total(numeros)}")
 
     print("\n=== Kata 25 - contar caracteres ===")
+    texto = "Python != Is Not is not"
+    print(f"'{texto}' => {kata25_contar_caracteres(texto)}")
 
     print("\n=== Kata 26 - modulo con lambda ===")
 
