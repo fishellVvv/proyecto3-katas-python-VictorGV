@@ -321,8 +321,13 @@ def kata29_enmascarar(valor):
     """
     Crea una función que convierta una variable en una cadena de texto y enmascare todos los caracteres con el carácter '#' excepto los últimos cuatro.
     """
-    pass
-
+    # Convertimos a string 
+    texto = str(valor)
+    # Si la longitud es 4 o más, enmascaramos los primeros caracteres
+    if len(texto) >= 4:
+        texto = "#" * (len(texto) - 4) + texto[-4:]
+    # devolvemos el valor en string
+    return texto
 
 def kata30_son_anagramas(palabra1, palabra2):
     """
@@ -636,6 +641,8 @@ if __name__ == "__main__":
     print(f"{elementos} => {kata28_primer_duplicado(elementos)}")
 
     print("\n=== Kata 29 - enmascarar ===")
+    valor = 987654321
+    print(f"'{valor}' => {kata29_enmascarar(valor)}")
 
     print("\n=== Kata 30 - son anagramas ===")
 
