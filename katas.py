@@ -19,7 +19,6 @@ def kata01_frecuencia_letras(texto):
         if c != " ":
             # Usamos dict.get para sumar 1 (0 por defecto si la clave no existe aún)
             frecuencias[c] = frecuencias.get(c, 0) + 1
-
     return frecuencias
 
 
@@ -40,7 +39,6 @@ def kata03_encontrar_coincidentes(palabras, objetivo):
     # Si el objetivo queda vacío, devolvemos lista vacía
     if not objetivo_limpio:
         return []
-    
     # Usamos filter + lambda para quedarnos solo con las palabras que contienen el objetivo
     return list(filter(lambda p: objetivo_limpio in p.lower(), palabras))
 
@@ -154,17 +152,24 @@ def kata12_longitudes_palabras(frase):
     """
     Genera una función que, al recibir una frase, devuelva una lista con la longitud de cada palabra. Usa la función map().
     """
-    palabras = frase.split(" ")
-    # Aplicamos una función lambda a cada palabra con map para calcular su longitud
-    return list(map(lambda palabra: len(palabra), palabras))
+    # Separamos la frase por espacios
+    palabras = frase.split()
+    # Aplicamos len a cada palabra con map para calcular su longitud
+    return list(map(len, palabras))
 
 
 def kata13_casos_caracteres(caracteres):
     """
     Genera una función que, para un conjunto de caracteres, devuelva una lista de tuplas con cada letra en mayúsculas y minúsculas. Las letras no pueden estar repetidas. Usa la función map().
     """
-    pass
-
+    # pasamos los caracteres a una lista ordenada sin repeticiones
+    caracteres_unicos = []
+    for c in caracteres:
+        if c.lower() not in caracteres_unicos:
+            caracteres_unicos.append(c.lower())
+    # Transformamos cada carácter en una tupla (MAY, min)
+    return list(map(lambda ch: (ch.upper(), ch.lower()), caracteres_unicos))
+    
 
 def kata14_palabras_que_empiezan_por(palabras, letra):
     """
@@ -517,3 +522,7 @@ if __name__ == "__main__":
     print("\n=== Kata 12 - longitudes palabras ===")
     frase = "Lorem ipsum dolor sit amet"
     print(f"'{frase}' => {kata12_longitudes_palabras(frase)}")
+
+    print("\n=== Kata 13 - casos caracteres ===")
+    caracteres = "PaTAta"
+    print(f"'{caracteres}' => {kata13_casos_caracteres(caracteres)}")
