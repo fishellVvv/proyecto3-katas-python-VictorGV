@@ -230,7 +230,8 @@ def kata20_filtrar_enteros(valores):
     """
     Para una lista con elementos de tipo integer y string, obtén una nueva lista solo con los valores int. Usa la función filter().
     """
-    pass
+    # con type() comprobamos si cada valor es int
+    return list(filter(lambda valor: type(valor) is int, valores))
 
 
 def kata21_cubo_lambda(num):
@@ -566,6 +567,8 @@ if __name__ == "__main__":
     print(f"{numeros} => {kata19_filtrar_impares_lambda(numeros)}")
 
     print("\n=== Kata 20 - filtrar enteros ===")
+    valores = [False, "1", "dos", 3]
+    print(f"{valores} => {kata20_filtrar_enteros(valores)}")
 
     print("\n=== Kata 21 - cubo con lambda ===")
 
