@@ -450,35 +450,63 @@ class UsuarioBanco:
     """
 
     def __init__(self, nombre, saldo, tiene_cuenta_corriente):
-        pass
-
-    def retirar_dinero(self, cantidad):
-        pass
-
-    def transferir_dinero(self, otro_usuario, cantidad):
-        pass
+        # Validamos el saldo inicial y creamos el usuario
+        if saldo < 0:
+            raise ValueError("El saldo inicial no puede ser negativo")
+        self.nombre = nombre
+        self.saldo = saldo
+        self.tiene_cuenta_corriente = bool(tiene_cuenta_corriente)
 
     def agregar_dinero(self, cantidad):
-        pass
+        # Aumentamos el saldo en la cantidad indicada y lanzamos ValueError si la cantidad no es válida o no tiene cuenta corriente
+        if cantidad <= 0:
+            raise ValueError("La cantidad a ingresar debe ser mayor que 0")
+        if not self.tiene_cuenta_corriente:
+            raise ValueError(f"El usuario {self.nombre} no dispone de cuenta corriente")
+        self.saldo += cantidad
+        return self.saldo
+
+    def retirar_dinero(self, cantidad):
+        # Reducimos el saldo en la cantidad indicada y lanzamos ValueError si la cantidad no es válida o no tiene cuenta corriente
+        if cantidad <= 0:
+            raise ValueError("La cantidad a retirar debe ser mayor que 0")
+        if not self.tiene_cuenta_corriente:
+            raise ValueError(f"El usuario {self.nombre} no dispone de cuenta corriente")
+        if cantidad > self.saldo:
+            raise ValueError(f"El saldo de {self.nombre} es insuficiente")
+        self.saldo -= cantidad
+        return self.saldo
+
+    def transferir_dinero(self, otro_usuario, cantidad):
+        # Realizamos la transferencia: desde otro_usuario (origen) hacia self (destino) y comprobamos que la cantidad y el usuario sean correctos
+        if cantidad <= 0:
+            raise ValueError("La cantidad a transferir debe ser mayor que 0")
+        if not isinstance(otro_usuario, UsuarioBanco):
+            raise TypeError("otro_usuario debe ser una instancia de UsuarioBanco")
+        # Primero retiramos del otro_usuario
+        otro_usuario.retirar_dinero(cantidad)
+        # Si no lanza error, ingresamos en el usuario de destino
+        self.agregar_dinero(cantidad)
+        return otro_usuario.saldo, self.saldo
 
 
 def contar_palabras(texto):
     """
-    -> Kata 36: Crear una función contar_palabras que cuente el número de veces que aparece cada palabra en el texto y devuelva un diccionario.
+    -> Kata 36_a: Crear una función contar_palabras que cuente el número de veces que aparece cada palabra en el texto y devuelva un diccionario.
     """
     pass
 
 
 def reemplazar_palabras(texto, palabra_original, palabra_nueva):
     """
-    -> Kata 36: Crear una función reemplazar_palabras para sustituir una palabra_original por una palabra_nueva en el texto y devolver el texto modificado.
+    -> Kata 36_b: Crear una función reemplazar_palabras para sustituir una palabra_original por una palabra_nueva en el texto y devolver el texto modificado.
     """
     pass
 
 
 def eliminar_palabra(texto, palabra):
     """
-    -> Kata 36: Crear una función eliminar_palabra que elimine una palabra del texto y devuelva el texto sin ella.
+    -> Kata 36_c: Crear una función eliminar_palabra que elimine una palabra del texto y devuelva el texto sin ella.
     """
     pass
 
@@ -713,6 +741,19 @@ if __name__ == "__main__":
         print(f"Error: {e}")
 
     print("\n=== Kata 35 - clase UsuarioBanco ===")
+    usuarioA = UsuarioBanco("Alicia", 100, True)
+    usuarioB = UsuarioBanco("Bob", 50, True)
+    usuarioB.agregar_dinero(20)
+    try:
+        usuarioA.transferir_dinero(usuarioB, 80)
+    except Exception as e:
+        print(f"Error: {e}")
+    try:    
+        usuarioA.retirar_dinero(50)
+    except Exception as e:
+        print(f"Error: {e}")
+    print(f"Saldo final de {usuarioA.nombre}: {usuarioA.saldo}€")
+    print(f"Saldo final de {usuarioB.nombre}: {usuarioB.saldo}€")
 
     print("\n=== Kata 36 - procesar texto ===")
 
