@@ -402,22 +402,32 @@ class Arbol:
     """
 
     def __init__(self):
-        pass
+        # Definimos el tronco y las ramas
+        self.tronco = 1
+        self.ramas = []
 
     def crecer_tronco(self):
-        pass
+        # El tronco crece 1
+        self.tronco += 1
 
     def nueva_rama(self):
-        pass
+        # Añadimos una rama
+        self.ramas.append(1)
 
     def crecer_ramas(self):
-        pass
+        # Usamos list comprehension para crecer en uno cada rama
+        self.ramas = [rama + 1 for rama in self.ramas]
 
     def quitar_rama(self, posicion):
-        pass
+        # Controlamos un posible Valor fuera de rango
+        if posicion < 0 or posicion >= len(self.ramas):
+            raise ValueError(f"El arbol no tiene ramas en la posición {posicion}")
+        # Podamos la rama de la posición indicada
+        self.ramas.pop(posicion)
 
     def info_arbol(self):
-        pass
+        # Devolvemos un diccionario con la info del arbol
+        return {"tronco": self.tronco, "num_ramas": len(self.ramas), "ramas": self.ramas}
 
 
 class UsuarioBanco:
@@ -690,6 +700,17 @@ if __name__ == "__main__":
     print(f"{lista1} + {lista2} => {kata33_sumar_listas_lambda(lista1, lista2)}")
 
     print("\n=== Kata 34 - clase Arbol ===")
+    try:
+        bonsai = Arbol()
+        bonsai.crecer_tronco()
+        bonsai.nueva_rama()
+        bonsai.crecer_ramas()
+        bonsai.nueva_rama()
+        bonsai.nueva_rama()
+        bonsai.quitar_rama(2)
+        print(bonsai.info_arbol())
+    except Exception as e:
+        print(f"Error: {e}")
 
     print("\n=== Kata 35 - clase UsuarioBanco ===")
 
