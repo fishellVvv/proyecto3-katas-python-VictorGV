@@ -333,7 +333,11 @@ def kata30_son_anagramas(palabra1, palabra2):
     """
     Crea una función que determine si dos palabras son anagramas, es decir, si están formadas por las mismas letras pero en diferente orden.
     """
-    pass
+    # Normalizamos las palabras aplicando minúsculas, quitando espacios y ordenando los caracteres
+    p1_norm = sorted(palabra1.lower().replace(" ", ""))
+    p2_norm = sorted(palabra2.lower().replace(" ", ""))
+    # Comparamos las palabras
+    return p1_norm == p2_norm
 
 
 def kata31_buscar_nombre():
@@ -628,9 +632,9 @@ if __name__ == "__main__":
     try:
         print(f"{dividendo} % {divisor} => {kata26_modulo_lambda(dividendo, divisor)}")
     except ValueError as e:
-        print(f"{num} => Error: {e}")
+        print(f"{dividendo} % {divisor} => Error: {e}")
     except Exception as e:
-        print(f"{num} => Error: {e}")
+        print(f"{dividendo} % {divisor} => Error: {e}")
 
     print("\n=== Kata 27 - promedio ===")
     numeros = [42, 7, 9, 2]
@@ -645,6 +649,9 @@ if __name__ == "__main__":
     print(f"'{valor}' => {kata29_enmascarar(valor)}")
 
     print("\n=== Kata 30 - son anagramas ===")
+    palabra1 = "Clint Eastwood"
+    palabra2 = "Old West Action"
+    print(f"'{palabra1}' - '{palabra2}' => {kata30_son_anagramas(palabra1, palabra2)}")
 
     print("\n=== Kata 31 - buscar nombre ===")
 
