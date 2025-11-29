@@ -344,7 +344,17 @@ def kata31_buscar_nombre():
     """
     Crea una función que solicite al usuario ingresar una lista de nombres y luego un nombre para buscar en esa lista. Si el nombre está en la lista, imprime un mensaje indicando que fue encontrado; de lo contrario, lanza una excepción.
     """
-    pass
+    # Leemos la lista de nombres, la pasamos a minúsculas y la separamos por espacios
+    nombres = input("Introduce un listado de nombres separados por espacios: ").lower().split()
+    # Leemos el nombre objetivo y eliminamos espacios al principio y al final
+    objetivo = input("Introduce un nombre para buscar en esa lista: ").strip()
+    # Controlamos posibles errores
+    if not nombres:
+        raise ListaVaciaError("El listado no tiene ningún elemento")
+    if objetivo.lower() not in nombres:
+        raise ValueError("El nombre no se encuentra en el listado")
+    # Si encontramos el nombre imprimimos el mensaje de éxito
+    print(f"El nombre {objetivo} fue encontrado en el listado")
 
 
 def kata32_buscar_puesto_empleado(nombre_completo, empleados):
@@ -654,6 +664,10 @@ if __name__ == "__main__":
     print(f"'{palabra1}' - '{palabra2}' => {kata30_son_anagramas(palabra1, palabra2)}")
 
     print("\n=== Kata 31 - buscar nombre ===")
+    try:
+        kata31_buscar_nombre()
+    except Exception as e:
+        print(f"Error: {e}")
 
     print("\n=== Kata 32 - buscar puesto empleado ===")
 
