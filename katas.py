@@ -361,7 +361,12 @@ def kata32_buscar_puesto_empleado(nombre_completo, empleados):
     """
     Crea una función que tome un nombre completo y una lista de empleados, busque el nombre en la lista y devuelva el puesto del empleado si se encuentra; de lo contrario, devuelve un mensaje indicando que la persona no trabaja aquí.
     """
-    pass
+    # Comparamos el nombre con cada empleado de la lista
+    for empleado in empleados:
+        if empleado["nombre"].lower() == nombre_completo.strip().lower():
+            return empleado["puesto"]
+    # Si no se encuentra en el listado de empleados devolvemos un mensaje indicándolo
+    return f"{nombre_completo} no trabaja aquí"
 
 
 def kata33_sumar_listas_lambda(lista1, lista2):
@@ -665,11 +670,19 @@ if __name__ == "__main__":
 
     print("\n=== Kata 31 - buscar nombre ===")
     try:
-        kata31_buscar_nombre()
+        # kata31_buscar_nombre()
+        pass
     except Exception as e:
         print(f"Error: {e}")
 
     print("\n=== Kata 32 - buscar puesto empleado ===")
+    nombre_completo = "Victor García Vigil"
+    empleados = [
+        {"nombre": "Pepe López Pérez", "puesto": "Analista"},
+        {"nombre": "Victor García Vigil", "puesto": "Dev. Junior"},
+        {"nombre": "Ana Fernandez Gómez", "puesto": "Dev. Senior"}
+    ]
+    print(f"'{nombre_completo}' en {empleados} => {kata32_buscar_puesto_empleado(nombre_completo, empleados)}")
 
     print("\n=== Kata 33 - sumar listas con lambda ===")
 
