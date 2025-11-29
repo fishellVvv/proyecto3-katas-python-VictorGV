@@ -373,7 +373,8 @@ def kata33_sumar_listas_lambda(lista1, lista2):
     """
     Crea una función lambda que sume elementos correspondientes de dos listas dadas.
     """
-    pass
+    # Utilizamos map() para aplicar la suma a cada elemento de las listas
+    return list(map(lambda num_l1, num_l2: num_l1 + num_l2, lista1, lista2))
 
 
 class Arbol:
@@ -527,7 +528,6 @@ def kata40_descuento_tienda_online():
 
 
 if __name__ == "__main__":
-
     # Pruebas manuales de las katas
 
     print("\n=== Kata 01 - frecuencia letras ===")
@@ -685,6 +685,9 @@ if __name__ == "__main__":
     print(f"'{nombre_completo}' en {empleados} => {kata32_buscar_puesto_empleado(nombre_completo, empleados)}")
 
     print("\n=== Kata 33 - sumar listas con lambda ===")
+    lista1 = [7, 20, 10, 0]
+    lista2 = [6, 2, -4, 12]
+    print(f"{lista1} + {lista2} => {kata33_sumar_listas_lambda(lista1, lista2)}")
 
     print("\n=== Kata 34 - clase Arbol ===")
 
